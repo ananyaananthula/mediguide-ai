@@ -13,7 +13,7 @@ export default function Navbar() {
           <a href="#" className="transition-colors hover:text-blue-600">
             Home
           </a>
-          <a href="#" className="transition-colors hover:text-blue-600">
+          <a href="/assistant" className="transition-colors hover:text-blue-600">
             AI Assistant
           </a>
           <a href="#" className="transition-colors hover:text-blue-600">

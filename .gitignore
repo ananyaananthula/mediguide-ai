@@ -1,44 +1,37 @@
-# macOS
-.DS_Store
-
 # Python
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+*.so
+*.egg-info/
+
+# Python virtual environments
 .venv/
 venv/
-env/
-
-# Node.js
-node_modules/
-.next/
-out/
-dist/
+backend/.venv/
 
 # Environment variables
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
+backend/.env
+
+# Node.js
+node_modules/
+frontend/node_modules/
+
+# Next.js
+.next/
+frontend/.next/
+out/
 
 # Logs
 *.log
 
-# VS Code
+# macOS
+.DS_Store
+
+# IDEs
 .vscode/
-
-# Python cache
-.pytest_cache/
-.mypy_cache/
-
-# Coverage
-.coverage
-htmlcov/
-
-# Build artifacts
-build/
-dist/
-
-# Misc
-*.sqlite3
-*.db
+.idea/

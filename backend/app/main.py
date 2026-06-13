@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from backend.app.api.routes import chat
+
 app = FastAPI(
     title="MediGuide AI API",
     description="Backend API for the MediGuide AI healthcare assistant.",
@@ -9,9 +11,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-    ],
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -19,10 +19,10 @@ app.add_middleware(
 
 
 @app.get("/")
-def read_root():
+def root():
     return {
         "message": "Welcome to MediGuide AI API!",
-        "status": "Backend is running successfully.",
+        "status": "Backend is running successfully."
     }
 
 
@@ -30,5 +30,8 @@ def read_root():
 def health_check():
     return {
         "status": "healthy",
-        "message": "MediGuide AI backend is operational.",
+        "message": "MediGuide AI backend is operational."
     }
+
+
+app.include_router(chat.router)

@@ -1,65 +1,123 @@
-import Image from "next/image";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+
+const features = [
+  {
+    icon: "🤖",
+    title: "AI Symptom Assistant",
+    description:
+      "Describe your symptoms naturally and receive AI-powered healthcare guidance with educational explanations.",
+  },
+  {
+    icon: "🌿",
+    title: "Home Remedies",
+    description:
+      "Discover safe home remedies, wellness tips, and simple exercises for mild everyday conditions.",
+  },
+  {
+    icon: "🏥",
+    title: "Find Nearby Hospitals",
+    description:
+      "Locate nearby hospitals and healthcare centers using real-world location data and maps.",
+  },
+  {
+    icon: "👨‍⚕️",
+    title: "Doctor Discovery",
+    description:
+      "Explore doctors by specialty, experience, and healthcare domain using trusted public data sources.",
+  },
+  {
+    icon: "🧠",
+    title: "Medical Knowledge Hub",
+    description:
+      "Ask health-related questions and understand diseases, medications, and preventive care in simple language.",
+  },
+  {
+    icon: "📱",
+    title: "Available Anywhere",
+    description:
+      "A responsive platform designed to work beautifully across desktop, tablet, and mobile devices.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-background text-foreground">
+      <Navbar />
+
+      <section className="relative overflow-hidden">
+        <div className="mx-auto flex max-w-7xl flex-col items-center px-6 py-24 text-center md:py-32">
+          <div className="mb-8 rounded-full border border-blue-200 bg-blue-50 px-5 py-2 text-sm font-medium text-blue-700">
+            🚀 AI-Powered Healthcare Assistant for Everyone
+          </div>
+
+          <h1 className="max-w-5xl text-5xl font-black tracking-tight md:text-7xl">
+            Your One-Stop Destination for
+            <span className="mt-2 block text-blue-600">
+              Smart Healthcare Guidance
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="mt-8 max-w-3xl text-lg leading-8 text-muted-foreground md:text-xl">
+            MediGuide AI combines artificial intelligence with trusted medical
+            information to help you understand symptoms, explore home remedies,
+            discover nearby hospitals, and make informed healthcare decisions —
+            all from one platform.
+          </p>
+
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+            <button className="rounded-xl bg-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:bg-blue-700">
+              🤖 Try AI Assistant
+            </button>
+
+            <button className="rounded-xl border border-border bg-background px-8 py-4 text-lg font-semibold transition-all duration-200 hover:scale-105 hover:bg-muted">
+              🏥 Find Hospitals
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="mb-14 text-center">
+          <div className="mb-4 text-sm font-semibold uppercase tracking-widest text-blue-600">
+            Features
+          </div>
+
+          <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+            Everything You Need for
+            <span className="block text-blue-600">
+              Smarter Healthcare
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">
+            A complete AI-powered healthcare companion designed to help users
+            understand symptoms, discover medical knowledge, and connect with
+            trusted healthcare resources.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature) => (
+            <div
+              key={feature.title}
+              className="rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div className="mb-5 text-5xl">{feature.icon}</div>
+
+              <h3 className="mb-3 text-2xl font-bold">
+                {feature.title}
+              </h3>
+
+              <p className="leading-7 text-muted-foreground">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      <Footer />
+    </main>
   );
 }

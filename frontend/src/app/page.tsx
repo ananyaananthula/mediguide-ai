@@ -1,5 +1,6 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import { getBackendHealth } from "@/lib/api";
 
 const features = [
   {
@@ -40,7 +41,9 @@ const features = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const backendHealth = await getBackendHealth();
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
@@ -73,6 +76,15 @@ export default function Home() {
             <button className="rounded-xl border border-border bg-background px-8 py-4 text-lg font-semibold transition-all duration-200 hover:scale-105 hover:bg-muted">
               🏥 Find Hospitals
             </button>
+          </div>
+
+          <div className="mt-8 rounded-xl border border-green-200 bg-green-50 px-6 py-4">
+            <p className="text-sm font-medium text-green-700">
+              ✅ Backend Status: {backendHealth.status}
+            </p>
+            <p className="mt-1 text-sm text-green-600">
+              {backendHealth.message}
+            </p>
           </div>
         </div>
       </section>

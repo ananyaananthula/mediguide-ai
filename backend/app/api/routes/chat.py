@@ -1,25 +1,33 @@
 from fastapi import APIRouter
+from pydantic import BaseModel
 
-from backend.app.models.chat import ChatRequest, ChatResponse
-from backend.app.services.ai_service import generate_ai_response
+from backend.app.services.agent_service import run_agent
 
 router = APIRouter(
     prefix="/chat",
-    tags=["AI Assistant"]
+    tags=["AI Assistant"],
 )
+
+
+class ChatRequest(BaseModel):
+    message: str
+
+
+class ChatResponse(BaseModel):
+    response: str
 
 
 @router.get("/")
 def chat_info():
     return {
-        "message": "MediGuide AI chat endpoint is ready.",
-        "status": "Gemini AI integration enabled."
+        "message": "LangGraph AI Agent endpoint is active."
     }
 
 
 @router.post("/", response_model=ChatResponse)
 def chat(request: ChatRequest):
-    ai_reply = generate_ai_response(request.message)
+    ai_response = run_agent(request.message)
+
     return ChatResponse(
-        response=ai_reply
+        response=ai_response
     )

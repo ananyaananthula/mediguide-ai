@@ -5,7 +5,7 @@ from backend.app.services.agent_service import run_agent
 
 router = APIRouter(
     prefix="/chat",
-    tags=["AI Assistant"],
+    tags=["AI Assistant"]
 )
 
 
@@ -17,17 +17,7 @@ class ChatResponse(BaseModel):
     response: str
 
 
-@router.get("/")
-def chat_info():
-    return {
-        "message": "LangGraph AI Agent endpoint is active."
-    }
-
-
 @router.post("/", response_model=ChatResponse)
-def chat(request: ChatRequest):
-    ai_response = run_agent(request.message)
-
-    return ChatResponse(
-        response=ai_response
-    )
+async def chat(request: ChatRequest):
+    result = run_agent(request.message)
+    return ChatResponse(response=result)
